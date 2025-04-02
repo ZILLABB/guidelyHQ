@@ -146,22 +146,26 @@ function LandingPage() {
                             {
                                 icon: <FaUsers className="text-[#5357b6] text-4xl" />,
                                 title: "AI-Powered Matching",
-                                description: "Our intelligent algorithm connects you with the perfect mentor based on your goals, skills, and preferences."
+                                description: "Our intelligent algorithm connects you with the perfect mentor based on your goals, skills, and preferences.",
+                                image: "/logo.png"
                             },
                             {
                                 icon: <FaCalendarCheck className="text-[#5357b6] text-4xl" />,
                                 title: "Seamless Scheduling",
-                                description: "Easily book sessions with your mentor through our integrated calendar system with timezone support."
+                                description: "Easily book sessions with your mentor through our integrated calendar system with timezone support.",
+                                image: "/one.jpg"
                             },
                             {
                                 icon: <FaVideo className="text-[#5357b6] text-4xl" />,
                                 title: "Virtual Meeting Space",
-                                description: "Connect through our integrated video platform with screen sharing and collaborative tools."
+                                description: "Connect through our integrated video platform with screen sharing and collaborative tools.",
+                                image: "/two.jpg"
                             },
                             {
                                 icon: <FaChartLine className="text-[#5357b6] text-4xl" />,
                                 title: "Progress Tracking",
-                                description: "Set goals, track milestones, and visualize your growth journey with detailed analytics."
+                                description: "Set goals, track milestones, and visualize your growth journey with detailed analytics.",
+                                image: "/landing.jpg"
                             }
                         ].map((feature, index) => (
                             <motion.div
@@ -172,7 +176,17 @@ function LandingPage() {
                             >
                                 <div className="mb-6 bg-[#eef2ff] p-4 rounded-lg inline-block">{feature.icon}</div>
                                 <h3 className="text-xl font-bold text-[#2d3282] mb-3 font-satoshi">{feature.title}</h3>
-                                <p className="text-gray-600">{feature.description}</p>
+                                <p className="text-gray-600 mb-4">{feature.description}</p>
+                                <div className="h-40 overflow-hidden rounded-lg">
+                                    <Image
+                                        src={feature.image}
+                                        alt={feature.title}
+                                        width={300}
+                                        height={200}
+                                        className="w-full h-full object-cover transition-transform hover:scale-105"
+                                        unoptimized
+                                    />
+                                </div>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -198,25 +212,25 @@ function LandingPage() {
                     </div>
 
                     <div className="relative">
-                        {/* The connecting line */}
-                        {/* <div className="absolute top-12 left-0 right-0 h-1 bg-[#e9eaf6] z-0 hidden md:block"></div> */}
-
-                        <div className="grid md:grid-cols-3 gap-8">
+                        <div className="grid md:grid-cols-3 gap-12">
                             {[
                                 {
                                     step: "1",
                                     title: "Create Your Profile",
-                                    description: "Sign up and build your profile highlighting your goals, interests, and areas where you seek guidance."
+                                    description: "Sign up and build your profile highlighting your goals, interests, and areas where you seek guidance.",
+                                    image: "/logo.png"
                                 },
                                 {
                                     step: "2",
                                     title: "Get Matched",
-                                    description: "Our AI algorithm will suggest mentors who align with your objectives and professional aspirations."
+                                    description: "Our AI algorithm will suggest mentors who align with your objectives and professional aspirations.",
+                                    image: "/one.jpg"
                                 },
                                 {
                                     step: "3",
                                     title: "Connect & Grow",
-                                    description: "Schedule sessions, set goals, and begin your personalized growth journey with expert guidance."
+                                    description: "Schedule sessions, set goals, and begin your personalized growth journey with expert guidance.",
+                                    image: "/two.jpg"
                                 }
                             ].map((item, index) => (
                                 <motion.div
@@ -227,8 +241,18 @@ function LandingPage() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.2 }}
                                 >
+                                    <div className="mb-6 h-48 w-full rounded-xl overflow-hidden">
+                                        <Image
+                                            src={item.image}
+                                            alt={item.title}
+                                            width={400}
+                                            height={300}
+                                            className="w-full h-full object-cover"
+                                            unoptimized
+                                        />
+                                    </div>
                                     <motion.div
-                                        className="w-16 h-16 rounded-full bg-[#2d3282] text-white flex items-center justify-center text-2xl font-bold mb-4"
+                                        className="w-16 h-16 rounded-full bg-[#2d3282] text-white flex items-center justify-center text-2xl font-bold mb-4 -mt-10 border-4 border-white"
                                         whileHover={{ scale: 1.1 }}
                                     >
                                         {item.step}
@@ -270,21 +294,21 @@ function LandingPage() {
                                 name: "Sarah Johnson",
                                 role: "UX Designer",
                                 company: "Design Co.",
-                                image: "https://randomuser.me/api/portraits/women/44.jpg"
+                                image: "/logo.png"
                             },
                             {
                                 quote: "As someone transitioning into tech, having a mentor who understood my background was invaluable. The personalized guidance helped me land my dream job within 4 months.",
                                 name: "Michael Chen",
                                 role: "Software Engineer",
                                 company: "TechGiant",
-                                image: "https://randomuser.me/api/portraits/men/32.jpg"
+                                image: "/one.jpg"
                             },
                             {
                                 quote: "Being a mentor on this platform has been as rewarding for me as it has been for my mentees. I've refined my leadership skills while helping others grow in their careers.",
                                 name: "Priya Sharma",
                                 role: "Product Manager",
                                 company: "InnovateCorp",
-                                image: "https://randomuser.me/api/portraits/women/68.jpg"
+                                image: "/two.jpg"
                             }
                         ].map((testimonial, index) => (
                             <motion.div
@@ -299,10 +323,13 @@ function LandingPage() {
                                 </div>
                                 <p className="text-gray-600 mb-8 italic">"{testimonial.quote}"</p>
                                 <div className="flex items-center">
-                                    <img
+                                    <Image
                                         src={testimonial.image}
                                         alt={testimonial.name}
+                                        width={48}
+                                        height={48}
                                         className="w-12 h-12 rounded-full mr-4 object-cover"
+                                        unoptimized
                                     />
                                     <div>
                                         <h4 className="font-bold text-[#2d3282]">{testimonial.name}</h4>
@@ -312,6 +339,145 @@ function LandingPage() {
                             </motion.div>
                         ))}
                     </motion.div>
+                </motion.div>
+            </section>
+
+            {/* Mentor Showcase Section (Updated) */}
+            <section className="py-24 px-6 bg-[#f9fafb] overflow-hidden">
+                <motion.div
+                    className="max-w-7xl mx-auto"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={fadeIn}
+                >
+                    <div className="text-center mb-20">
+                        <h2 className="text-[#2d3282] text-4xl md:text-5xl font-bold mb-6 font-satoshi">
+                            Meet Our Mentors
+                        </h2>
+                        <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+                            Learn from industry experts with proven track records of success.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-4 gap-6">
+                        {[
+                            {
+                                name: "Dr. Emily Rodriguez",
+                                role: "AI Research Scientist",
+                                company: "TechInnovate",
+                                image: "/logo.png"
+                            },
+                            {
+                                name: "James Wilson",
+                                role: "Marketing Director",
+                                company: "Global Brands",
+                                image: "/one.jpg"
+                            },
+                            {
+                                name: "Aisha Patel",
+                                role: "Senior Product Manager",
+                                company: "ProductHQ",
+                                image: "/two.jpg"
+                            },
+                            {
+                                name: "Robert Kim",
+                                role: "Startup Advisor",
+                                company: "VentureX",
+                                image: "/landing.jpg"
+                            }
+                        ].map((mentor, index) => (
+                            <motion.div
+                                key={index}
+                                className="group"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                whileHover={{ y: -10 }}
+                            >
+                                <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-all group-hover:shadow-lg">
+                                    <div className="h-64 overflow-hidden">
+                                        <Image
+                                            src={mentor.image}
+                                            alt={mentor.name}
+                                            width={300}
+                                            height={400}
+                                            className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                                            unoptimized
+                                        />
+                                    </div>
+                                    <div className="p-6">
+                                        <h3 className="font-bold text-[#2d3282] text-xl mb-1">{mentor.name}</h3>
+                                        <p className="text-gray-600">{mentor.role}</p>
+                                        <p className="text-gray-500 text-sm">{mentor.company}</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-12">
+                        <motion.button
+                            className="bg-[#5357b6] text-white px-8 py-4 rounded-md font-medium hover:bg-[#2d3282] transition-all shadow-md"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            View All Mentors
+                        </motion.button>
+                    </div>
+                </motion.div>
+            </section>
+
+            {/* Image Gallery Section (Updated) */}
+            <section className="py-24 px-6 bg-white">
+                <motion.div
+                    className="max-w-7xl mx-auto"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={fadeIn}
+                >
+                    <div className="text-center mb-20">
+                        <h2 className="text-[#2d3282] text-4xl md:text-5xl font-bold mb-6 font-satoshi">
+                            The Guildely Experience
+                        </h2>
+                        <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+                            See how our platform brings mentors and mentees together in meaningful ways.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                            "/logo.png",
+                            "/one.jpg",
+                            "/two.jpg",
+                            "/landing.jpg",
+                            "/logo.png",
+                            "/one.jpg",
+                            "/two.jpg",
+                            "/landing.jpg"
+                        ].map((image, index) => (
+                            <motion.div
+                                key={index}
+                                className={`overflow-hidden rounded-xl ${index === 0 || index === 3 ? 'md:col-span-2 md:row-span-2' : ''}`}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.05 }}
+                                whileHover={{ scale: 1.03 }}
+                            >
+                                <Image
+                                    src={image}
+                                    alt={`Guildely experience ${index + 1}`}
+                                    width={600}
+                                    height={600}
+                                    className="w-full h-full object-cover transition-transform hover:scale-110"
+                                    unoptimized
+                                />
+                            </motion.div>
+                        ))}
+                    </div>
                 </motion.div>
             </section>
 
